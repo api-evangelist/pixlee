@@ -1,0 +1,118 @@
+openapi: 3.1.0
+info:
+  title: Pixlee Content Albums API
+  version: '2.0'
+  description: Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.
+  contact:
+    name: Pixlee TurnTo Developer Support (Emplifi)
+    url: https://developers.pixlee.com/
+  x-apievangelist-source: Reconstructed verbatim from the OpenAPI 3.1 fragments published on the Pixlee developer portal (ReadMe-hosted) reference pages at https://developers.pixlee.com/reference/*
+servers:
+- url: https://distillery.pixlee.co/api/v2
+  description: Pixlee Content API v2 production (CDN-cached, 2 minute expiry)
+security:
+- api_key: []
+tags:
+- name: Albums
+  description: Create albums and add or update products
+paths:
+  /albums:
+    post:
+      tags:
+      - Albums
+      summary: Create Album / Add or Update Product
+      description: Creates a standard or category (tag) album, or adds/updates a product (album_type "product"). Requires the ACCOUNT PRIVATE API KEY and an HMAC-SHA1 signature header.
+      operationId: add-product
+      parameters:
+      - name: api_key
+        in: query
+        required: true
+        description: Pixlee's ACCOUNT PRIVATE API KEY
+        schema:
+          type: string
+      - name: signature
+        in: header
+        required: true
+        description: An HMAC-SHA1 signature (Base64) of the JSON payload signed with the ACCOUNT SECRET KEY. See https://developers.pixlee.com/reference/about-the-content-api#authentication
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                album_type:
+                  type: string
+                  description: '"standard", "category", or "product"'
+                public_contribution:
+                  type: boolean
+                  default: true
+                moderation:
+                  type: boolean
+                  default: true
+                liveUpdate:
+                  type: boolean
+                  default: true
+                product:
+                  type: object
+                  properties:
+                    sku:
+                      type: string
+                    product_photo:
+                      type: string
+                    name:
+                      type: string
+                    buy_now_link_url:
+                      type: string
+                    buy_now_text:
+                      type: string
+                    price:
+                      type: number
+                    stock:
+                      type: integer
+                    currency:
+                      type: string
+              required:
+              - title
+            examples:
+              CreateProduct:
+                value:
+                  title: Pixlee Tshirt
+                  album_type: product
+                  product:
+                    sku: PTS5
+                    product_photo: https://cdn.dribbble.com/users/67504/screenshots/1313354/shirt.jpg
+                    name: Pixlee Tshirt
+                    buy_now_link_url: https://pixlee.com/tshirt
+                    buy_now_text: Shop Now
+                    price: 234
+                    stock: 12
+                    currency: USD
+      responses:
+        '200':
+          description: Album or product created/updated.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelope'
+components:
+  schemas:
+    ResponseEnvelope:
+      type: object
+      description: All response objects are accessible under the `data` key.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Pixlee ACCOUNT API KEY (read) or ACCOUNT PRIVATE API KEY (write). Found under the API tab in Pixlee account settings.

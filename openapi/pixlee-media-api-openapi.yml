@@ -1,0 +1,138 @@
+openapi: 3.1.0
+info:
+  title: Pixlee Content Albums Media API
+  version: '2.0'
+  description: Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.
+  contact:
+    name: Pixlee TurnTo Developer Support (Emplifi)
+    url: https://developers.pixlee.com/
+  x-apievangelist-source: Reconstructed verbatim from the OpenAPI 3.1 fragments published on the Pixlee developer portal (ReadMe-hosted) reference pages at https://developers.pixlee.com/reference/*
+servers:
+- url: https://distillery.pixlee.co/api/v2
+  description: Pixlee Content API v2 production (CDN-cached, 2 minute expiry)
+security:
+- api_key: []
+tags:
+- name: Media
+  description: Upload new content from a URL or a file
+paths:
+  /media:
+    post:
+      tags:
+      - Media
+      summary: Create new Content from URL
+      description: Returns album_photo_id. Most image types, gifs, and mp4s are allowed in photo_uri. Either connected_user_id or email must be non-null.
+      operationId: create-new-content-from-url
+      parameters:
+      - name: api_key
+        in: query
+        required: true
+        description: Pixlee's ACCOUNT PRIVATE API KEY
+        schema:
+          type: string
+      - name: signature
+        in: header
+        required: true
+        description: HMAC-SHA1 (Base64) signature of the JSON payload.
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                album_id:
+                  type: integer
+                title:
+                  type: string
+                email:
+                  type: string
+                username:
+                  type: string
+                photo_uri:
+                  type: string
+                avatar_url:
+                  type: string
+                approved:
+                  type: boolean
+                connected_user_id:
+                  type: integer
+                product_skus:
+                  type: array
+                  items:
+                    type: string
+                category_names:
+                  type: array
+                  items:
+                    type: string
+                connected_user:
+                  type: object
+              required:
+              - album_id
+              - photo_uri
+      responses:
+        '200':
+          description: Content created; returns album_photo_id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelope'
+  /media/file:
+    post:
+      tags:
+      - Media
+      summary: Create new Content from File
+      description: Uploads content as multipart/form-data with a binary `file` part and a `json` metadata part. Returns album_photo_id and connected_user_id.
+      operationId: create-new-content-from-file
+      parameters:
+      - name: api_key
+        in: query
+        required: true
+        description: Pixlee's ACCOUNT PRIVATE API KEY
+        schema:
+          type: string
+      - name: signature
+        in: header
+        required: true
+        description: HMAC-SHA1 (Base64) signature of the JSON payload.
+        schema:
+          type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The media file (multipart/form-data)
+                json:
+                  type: string
+                  description: JSON metadata (album_id, title, email, username, etc.)
+      responses:
+        '200':
+          description: Content created; returns album_photo_id and connected_user_id.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResponseEnvelope'
+components:
+  schemas:
+    ResponseEnvelope:
+      type: object
+      description: All response objects are accessible under the `data` key.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        data:
+          type: object
+  securitySchemes:
+    api_key:
+      type: apiKey
+      in: query
+      name: api_key
+      description: Pixlee ACCOUNT API KEY (read) or ACCOUNT PRIVATE API KEY (write). Found under the API tab in Pixlee account settings.
