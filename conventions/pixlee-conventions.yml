@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://developers.pixlee.com/reference/about-the-content-api,
+  /reference/consuming-content, /reference/api-getting-started
+authentication:
+  style: api-key-query
+  detail: >-
+    ACCOUNT API KEY (read) or ACCOUNT PRIVATE API KEY (write) passed as the
+    api_key query parameter. CORS is enabled for all origins.
+  see: authentication/pixlee-authentication.yml
+request_signing:
+  scheme: HMAC-SHA1
+  applies_to: all POST (write) requests
+  header: Signature
+  detail: >-
+    Sign the JSON payload with the ACCOUNT SECRET KEY using HMAC-SHA1, Base64
+    encode, and send in the Signature header. JSON must be minified (no extra
+    spaces/line breaks) before signing.
+idempotency:
+  supported: false
+  detail: No Idempotency-Key header or documented idempotent-write contract.
+pagination:
+  style: page-number
+  params: [page, per_page]
+  defaults: { page: 1, per_page: 30 }
+  applies_to: get-approved-content-from-album
+filtering:
+  param: filters
+  format: JSON object of intersecting filter clauses
+  detail: >-
+    Rich filter vocabulary (content_source, content_type, has_product,
+    has_permission, in_categories, submitted_date_start/end, computer_vision,
+    filter_by_hashtag, product_sku, etc.). See errors/ and openapi/ for details.
+sorting:
+  param: sort
+  format: JSON object; single sort key + desc|asc
+  keys: [recency, approved_time, random, pixlee_shares, pixlee_likes, popularity, dynamic]
+response_envelope:
+  wrapper_key: data
+  detail: All response objects are accessible under the `data` key of the envelope.
+  see: errors/pixlee-problem-types.yml
+content_type:
+  detail: POST payloads always include Content-Type application/json (file uploads use multipart/form-data).
+caching:
+  detail: >-
+    Endpoints under distillery.pixlee.co are CDN cached by full URL with a
+    2-minute expiry. Add &unique_id=<numeric_timestamp> to bust the cache.
+versioning:
+  see: lifecycle/pixlee-lifecycle.yml

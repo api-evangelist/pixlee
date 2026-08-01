@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://developers.pixlee.com/changelog
+scheme: dated-entries
+current_version: v2 (Content API); SDKs versioned independently
+notes: >-
+  The public developer changelog tracks SDK releases (iOS/Android). Entries
+  below are the recent window captured verbatim from the changelog index; exact
+  dates are not surfaced on the index listing.
+entries:
+  - title: '[iOS SDK] Added hotspots'
+    area: ios-sdk
+    breaking: false
+    highlights: [Hotspot support for tagged products on media]
+  - title: '[Android SDK] Added hotspots'
+    area: android-sdk
+    breaking: false
+    highlights: [Hotspot support for tagged products on media]
+  - title: '[iOS SDK] Added sales price'
+    area: ios-sdk
+    breaking: false
+    highlights: [Sales price display on product tiles]
+  - title: '[Android SDK] Fixed a UI bug'
+    area: android-sdk
+    breaking: false
+  - title: '[Android SDK] Fixed a bug of displaying sales price'
+    area: android-sdk
+    breaking: false

@@ -1,0 +1,52 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  github.com/pixlee org, CocoaPods (PixleeSDK), Packagist (pixlee/magento2),
+  and the Pixlee developer portal SDK references
+packages:
+  - language: swift
+    registry: cocoapods
+    name: PixleeSDK
+    url: https://cocoapods.org/pods/PixleeSDK
+    repository: https://github.com/pixlee/pixlee-ios-sdk
+    install: pod 'PixleeSDK', '~> 3.1'
+    version: 3.1.0
+    official: true
+    description: Pixlee iOS SDK for displaying, filtering and sorting UGC with product tags.
+  - language: kotlin
+    registry: github
+    name: android-sdk
+    url: https://github.com/pixlee/android-sdk
+    repository: https://github.com/pixlee/android-sdk
+    install: implementation 'com.pixlee.pixleesdk:PixleeAndroidSDK:<version>'
+    official: true
+    description: Pixlee Android SDK for displaying, filtering and sorting UGC with product tags.
+  - language: php
+    registry: github
+    name: pixlee-php-v1
+    url: https://github.com/pixlee/pixlee-php-v1
+    repository: https://github.com/pixlee/pixlee-php-v1
+    official: true
+    description: A simple PHP wrapper for the v1 Pixlee API.
+  - language: php
+    registry: packagist
+    name: pixlee/magento2
+    url: https://packagist.org/packages/pixlee/magento2
+    repository: https://github.com/pixlee/magento2
+    install: composer require pixlee/magento2
+    official: true
+    description: Pixlee (Emplifi) Magento 2 / Adobe Commerce social-commerce integration module.
+  - language: javascript
+    registry: github
+    name: salesforce-commerce-cloud
+    url: https://github.com/pixlee/salesforce-commerce-cloud
+    repository: https://github.com/pixlee/salesforce-commerce-cloud
+    official: true
+    description: Emplifi Pixlee TurnTo Social UGC integration for Salesforce Commerce Cloud (SFRA/SiteGenesis).
+  - language: javascript
+    registry: github
+    name: react-component-library
+    url: https://github.com/pixlee/react-component-library
+    repository: https://github.com/pixlee/react-component-library
+    official: true
+    description: Pixlee React component library (MIT).

@@ -1,0 +1,18 @@
+{
+  "provider": "pixlee",
+  "sources": [
+    "pixlee-albums-api-openapi.yml",
+    "pixlee-content-api-openapi.yml",
+    "pixlee-media-api-openapi.yml"
+  ],
+  "outputs": [
+    "pixlee-albums-api-openapi.yml",
+    "pixlee-content-api-openapi.yml",
+    "pixlee-media-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

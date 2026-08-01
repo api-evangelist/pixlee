@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of /.well-known/* on Pixlee API + docs + website hosts
+notes: >-
+  No .well-known discovery documents are published. developers.pixlee.com and
+  distillery.pixlee.co return 404 for all probed paths; www.pixlee.com (which
+  301-redirects to emplifi.io) returns a 200 SPA HTML soft-404 for every path
+  (not a real document). api.pixlee.com does not resolve. Recorded as an honest
+  negative.
+hosts:
+  - host: https://developers.pixlee.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://distillery.pixlee.co
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://www.pixlee.com
+    note: 301 to emplifi.io; all paths return a 200 SPA HTML soft-404 (no real documents)
+    documents:
+      - path: /.well-known/security.txt
+        status: soft-404
+      - path: /.well-known/openid-configuration
+        status: soft-404
+      - path: /.well-known/api-catalog
+        status: soft-404

@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://developers.pixlee.com/docs/pixlee-widget-user-guide,
+  /docs/pixlee-widget-events, /docs/standard-email-display, /docs/triggered-email
+notes: >-
+  Pixlee ships embeddable, client-side UGC display surfaces (Widgets) plus
+  native mobile UI SDKs. These are distinct from the server-side Content API.
+component_families:
+  - name: Pixlee JavaScript Widget
+    kind: embeddable-iframe-widget
+    loader: Pixlee widget JavaScript snippet (window.Pixlee / PixleeWidget)
+    detail: >-
+      JavaScript widgets that render an iFrame experience hosted entirely by
+      Pixlee, blending into the host page. Configured via a widget options
+      object; support subscribedEvents to emit widget interaction events.
+    docs: https://developers.pixlee.com/docs/pixlee-widget-user-guide
+    events:
+      docs: https://developers.pixlee.com/docs/pixlee-widget-events
+      detail: Widgets emit events on user actions; subscribe via the subscribedEvents option.
+  - name: Email Display
+    kind: server-rendered-email-block
+    variants: [standard-email-display, triggered-email]
+    detail: Pixlee UGC blocks embeddable in marketing and triggered emails.
+    docs: https://developers.pixlee.com/docs/standard-email-display
+  - name: Mobile UI SDKs
+    kind: native-mobile-ui
+    detail: iOS (PixleeSDK) and Android SDKs render UGC galleries with product tags and hotspots.
+    packages:
+      - packages/pixlee-packages.yml
+  - name: React Component Library
+    kind: react-components
+    repository: https://github.com/pixlee/react-component-library

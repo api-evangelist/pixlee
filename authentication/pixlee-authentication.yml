@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/pixlee-content-api-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - query
+schemes:
+- name: api_key
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: Pixlee ACCOUNT API KEY (read) or ACCOUNT PRIVATE API KEY (write). Found under
+    the API tab in Pixlee account settings.
+  sources:
+  - openapi/pixlee-content-api-openapi.yml

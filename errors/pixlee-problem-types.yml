@@ -1,0 +1,34 @@
+generated: '2026-07-20'
+method: derived
+format: envelope
+source: openapi/pixlee-content-api-openapi.yml + developers.pixlee.com
+notes: >-
+  Pixlee does not publish an RFC 9457 problem+json catalog. Errors are returned
+  in the standard response envelope (status/message keys alongside data). The
+  entries below are DERIVED from the documented behavior and standard HTTP
+  semantics for the Content API; titles are conservative.
+envelope:
+  fields: [status, message, data]
+  description: Success and error responses share the envelope; data is null on error.
+problems:
+  - status: 400
+    title: Bad Request
+    detail: Malformed JSON payload, missing required fields, or invalid filter/sort JSON.
+  - status: 401
+    title: Unauthorized
+    detail: Missing or invalid api_key.
+  - status: 403
+    title: Forbidden / Invalid Signature
+    detail: >-
+      Missing or invalid HMAC-SHA1 Signature header on a write request, or use
+      of the public API key where the private key is required.
+    source_operation: openapi/pixlee-content-api-openapi.yml#add-product
+  - status: 404
+    title: Album Not Found
+    detail: The referenced album_id does not exist or is not accessible.
+    source_operation: openapi/pixlee-content-api-openapi.yml#get-approved-content-from-album
+  - status: 429
+    title: Too Many Requests
+    detail: Rate limit exceeded.
+  - status: 500
+    title: Internal Server Error

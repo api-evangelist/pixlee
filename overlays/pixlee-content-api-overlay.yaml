@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Pixlee Content API
+  version: 1.0.0
+extends: openapi/pixlee-content-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-rating: 3
+      x-apievangelist-notes: >-
+        Query-string api_key auth plus an HMAC-SHA1 request-signing scheme for
+        writes. No OAuth, no webhooks/AsyncAPI, no idempotency key. Response
+        envelope wraps payloads under a `data` key. CDN cached (2 min); use
+        &unique_id=<timestamp> to bust the cache.
+  - target: $.paths['/albums/{album_id}/photos'].get
+    update:
+      x-apievangelist-primary: true
+      x-apievangelist-notes: Most-used consumption endpoint; paginated via page/per_page.
+  - target: $.paths['/albums'].post
+    update:
+      x-apievangelist-notes: >-
+        Overloaded — creates albums AND adds/updates products depending on
+        album_type. Requires ACCOUNT PRIVATE API KEY + Signature header.
+  - target: $.components.securitySchemes.api_key
+    update:
+      x-apievangelist-signing: >-
+        Write requests additionally require a Base64 HMAC-SHA1 Signature header
+        of the JSON payload, signed with the ACCOUNT SECRET KEY.

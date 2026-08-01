@@ -1,0 +1,12 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/pixlee-content-api-openapi.yml
+skills:
+  - file: pixlee-consume-album-content.md
+    name: Consume approved UGC from a Pixlee album
+    api: openapi/pixlee-content-api-openapi.yml
+    operations: [get-approved-content-from-album]
+  - file: pixlee-ingest-content.md
+    name: Ingest content and manage products in Pixlee
+    api: openapi/pixlee-content-api-openapi.yml
+    operations: [create-new-content-from-url, create-new-content-from-file, add-product]

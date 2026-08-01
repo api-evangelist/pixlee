@@ -1,0 +1,34 @@
+# Pixlee Documentation
+
+> Pixlee's API is used to provide brands access to their Pixlee content, their analytics & insights, and add new content into the platform.
+
+## Guides
+- [Getting Started](https://developers.pixlee.com/docs/getting-started.md)
+- [Getting your API Keys](https://developers.pixlee.com/docs/getting-your-api-keys.md): You'll need your API keys to enable most integrations and all API functionality
+- [Pixlee Widget User Guide](https://developers.pixlee.com/docs/pixlee-widget-user-guide.md): Pixlee Widgets are JavaScript widgets that, when added to your web page, create an iFrame experience hosted entirely by Pixlee that seamlessly blends into your site.
+- [Pixlee Widget Events Guide](https://developers.pixlee.com/docs/pixlee-widget-events.md): All widgets emit events when certain actions occur. You can optionally subscribe to these events using the 'subscribedEvents’ option in the JavaScript Widget. You might then send these to your own analytics provider as an example.
+- [BigCommerce](https://developers.pixlee.com/docs/bigcommerce.md): Documentation for setting up your BigCommerce store to work with Pixlee
+- [Magento](https://developers.pixlee.com/docs/magento.md): Documentation for setting up your Magento store to work with Pixlee
+- [Magento 2 / Adobe Commerce](https://developers.pixlee.com/docs/magento-2.md): Documentation for setting up Pixlee on your Magento 2 / Adobe Commerce stores
+- [Salesforce Commerce Cloud - SFRA & SiteGenesis](https://developers.pixlee.com/docs/salesforce-commerce-cloud-sfra-demandware.md): Documentation for setting up your SFCC SFRA or SiteGenesis store to work with Pixlee [Formerly Demandware]
+- [SiteGenesis (Pipelines)](https://developers.pixlee.com/docs/salesforce-commerce-cloud-demandware.md): Documentation for SalesForce Commerce Cloud SiteGenesis stores using Pipelines [Formerly Demandware]
+- [Shopify](https://developers.pixlee.com/docs/shopify.md): Documentation for adding Emplifi's Pixlee TurnTo Social UGC to your Shopify store
+- [Custom Shopping Cart (Product Feed)](https://developers.pixlee.com/docs/custom-shopping-cart.md): Have a custom-built shopping cart or something we don't have an existing integration for? No Problem, this guide will help you import products into Pixlee.
+- [Custom Shopping Cart (Analytics Pixel)](https://developers.pixlee.com/docs/analytics-events-tracking-pixel-guide.md): Have a custom-built shopping cart or something we don't have an existing integration for? Perhaps you're building an API-powered display. No Problem, this guide will help make sure you're still getting analytics into Pixlee.
+- [Standard Email Display](https://developers.pixlee.com/docs/standard-email-display.md)
+- [Triggered Email](https://developers.pixlee.com/docs/triggered-email.md)
+
+## API Reference
+- [Getting Started](https://developers.pixlee.com/reference/api-getting-started.md)
+- [Create Album](https://developers.pixlee.com/reference/content-api-reference-albums-post.md): Allows you to create a standard or category (tag) album
+- [Consuming Content](https://developers.pixlee.com/reference/consuming-content.md)
+- [Create new Content from URL](https://developers.pixlee.com/reference/create-new-content-from-url.md): Returns album_photo_id. Generally, most image types, gifs, as well as mp4s are allowed in the photo_uri.  If the same image is created multiple times, the image properties will not change, but if additional products or categories are included they will be tagged.
+- [Create new Content from File](https://developers.pixlee.com/reference/create-new-content-from-file.md)
+- [Add / Update Product](https://developers.pixlee.com/reference/add-product.md): Adds or Updates a product
+
+## Changelog
+- [[iOS SDK] Added hotspots](https://developers.pixlee.com/changelog/ios-sdk-hotspots.md)
+- [[Android SDK] Added hotspots](https://developers.pixlee.com/changelog/android-sdk-hotspots.md)
+- [[iOS SDK] Added sales price](https://developers.pixlee.com/changelog/ios-sdk-added-sales-price.md)
+- [[Android SDK] Fixed an UI bug](https://developers.pixlee.com/changelog/android-sdk-a-bug-fix-of-ui.md)
+- [[Android SDK] Fixed a bug of displaying sales price](https://developers.pixlee.com/changelog/android-sdk-fixed-a-bug-of-displaying-sales-price.md)

@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/pixlee-content-api-openapi.yml + developers.pixlee.com reference
+entities:
+  - name: Album
+    id: album_id
+    description: A collection of media (types - standard, category/tag, product).
+    fields: [title, album_type, public_contribution, moderation, liveUpdate, num_photos, num_inbox_photos]
+  - name: Photo
+    id: album_photo_id
+    description: A single piece of UGC media (image/gif/video) within an album.
+    fields: [title, photo_uri, approved, content_source, content_type, product_skus, category_names]
+  - name: Product
+    id: sku
+    description: A commerce product that media can be tagged with.
+    fields: [name, sku, product_photo, buy_now_link_url, buy_now_text, price, stock, currency]
+  - name: ConnectedUser
+    id: connected_user_id
+    description: The user/submitter associated with a piece of content.
+    fields: [username, email, avatar_url, connected_user]
+relationships:
+  - from: Album
+    to: Photo
+    type: has_many
+    via: album_id
+  - from: Photo
+    to: Album
+    type: belongs_to
+    via: album_id
+  - from: Photo
+    to: Product
+    type: has_many
+    via: product_skus
+  - from: Photo
+    to: ConnectedUser
+    type: belongs_to
+    via: connected_user_id
+  - from: Album
+    to: Product
+    type: has_one
+    via: product
+    note: A product-type album carries a single product object.
