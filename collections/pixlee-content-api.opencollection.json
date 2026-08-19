@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixlee Albums Content API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Content",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get approved content from album",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://distillery.pixlee.co/api/v2/albums/:album_id/photos",
+            "params": [
+              {
+                "name": "album_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "JSON sort object. Applicable sorts: recency, approved_time, random, pixlee_shares, pixlee_likes, popularity, dynamic (with desc | asc)."
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query",
+                "description": "JSON filters object (intersecting clauses). See the Consuming Content guide for the full filter vocabulary (content_source, content_type, has_product, has_permission, in_categories, etc.)."
+              }
+            ]
+          },
+          "docs": "Returns approved media content inside an album. Optionally, pass in formatted JSON to filter or sort the content. This is the most commonly used endpoint for consuming UGC."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,23 +2,28 @@ generated: '2026-07-20'
 method: derived
 status: candidate
 source: openapi/pixlee-content-api-openapi.yml
-notes: >-
-  No official hosted/remote Pixlee MCP server was found (no @modelcontextprotocol
-  package, no registry entry, no docs reference). This is a DERIVED candidate
-  tool list mapping each Content API operation to an MCP tool; status: candidate.
+notes: 'No official hosted/remote Pixlee MCP server was found (no @modelcontextprotocol package, no registry
+  entry, no docs reference). This is a DERIVED candidate tool list mapping each Content API operation
+  to an MCP tool; status: candidate.'
 server:
   name: pixlee-content-api
   transport: http
 tools:
-  - name: get_approved_content_from_album
-    description: List approved UGC media from a Pixlee album, with filters and sorts.
-    source_operation: openapi/pixlee-content-api-openapi.yml#get-approved-content-from-album
-  - name: create_album_or_product
-    description: Create a standard/category album or add/update a product (album_type product).
-    source_operation: openapi/pixlee-content-api-openapi.yml#add-product
-  - name: create_content_from_url
-    description: Ingest new content into an album from a photo/video URL.
-    source_operation: openapi/pixlee-content-api-openapi.yml#create-new-content-from-url
-  - name: create_content_from_file
-    description: Upload new content into an album from a binary file (multipart).
-    source_operation: openapi/pixlee-content-api-openapi.yml#create-new-content-from-file
+- name: get_approved_content_from_album
+  description: List approved UGC media from a Pixlee album, with filters and sorts.
+  source_operation: openapi/pixlee-content-api-openapi.yml#get-approved-content-from-album
+- name: create_album_or_product
+  description: Create a standard/category album or add/update a product (album_type product).
+  source_operation: openapi/pixlee-content-api-openapi.yml#add-product
+- name: create_content_from_url
+  description: Ingest new content into an album from a photo/video URL.
+  source_operation: openapi/pixlee-content-api-openapi.yml#create-new-content-from-url
+- name: create_content_from_file
+  description: Upload new content into an album from a binary file (multipart).
+  source_operation: openapi/pixlee-content-api-openapi.yml#create-new-content-from-file
+deployment:
+  mode: none
+  verified: derived
+  tools: 4
+  checked: '2026-08-12'
+  source: catalog MCP census

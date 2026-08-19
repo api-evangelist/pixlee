@@ -1,0 +1,310 @@
+{
+  "item": [
+    {
+      "id": "9bd7ef74-f77b-4885-9216-639963cc2ed2",
+      "name": "Media",
+      "description": {
+        "content": "Upload new content from a URL or a file",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35b9c8b3-3f5b-4606-892f-42988f9c8ce7",
+          "name": "Create new Content from URL",
+          "request": {
+            "name": "Create new Content from URL",
+            "description": {
+              "content": "Returns album_photo_id. Most image types, gifs, and mp4s are allowed in photo_uri. Either connected_user_id or email must be non-null.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) Pixlee's ACCOUNT PRIVATE API KEY"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) HMAC-SHA1 (Base64) signature of the JSON payload.",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"album_id\": \"<integer>\",\n  \"photo_uri\": \"<string>\",\n  \"title\": \"<string>\",\n  \"email\": \"<string>\",\n  \"username\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"approved\": \"<boolean>\",\n  \"connected_user_id\": \"<integer>\",\n  \"product_skus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"connected_user\": \"<object>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0b343250-59bb-4d60-8603-21495bfe112e",
+              "name": "Content created; returns album_photo_id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) HMAC-SHA1 (Base64) signature of the JSON payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"album_id\": \"<integer>\",\n  \"photo_uri\": \"<string>\",\n  \"title\": \"<string>\",\n  \"email\": \"<string>\",\n  \"username\": \"<string>\",\n  \"avatar_url\": \"<string>\",\n  \"approved\": \"<boolean>\",\n  \"connected_user_id\": \"<integer>\",\n  \"product_skus\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"category_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"connected_user\": \"<object>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1322,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e352245-7615-4a20-9a3b-03d542790d0f",
+          "name": "Create new Content from File",
+          "request": {
+            "name": "Create new Content from File",
+            "description": {
+              "content": "Uploads content as multipart/form-data with a binary `file` part and a `json` metadata part. Returns album_photo_id and connected_user_id.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "media",
+                "file"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) Pixlee's ACCOUNT PRIVATE API KEY"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) HMAC-SHA1 (Base64) signature of the JSON payload.",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "multipart/form-data"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "description": "The media file (multipart/form-data)"
+                },
+                {
+                  "key": "json",
+                  "value": "<string>",
+                  "type": "text",
+                  "description": "JSON metadata (album_id, title, email, username, etc.)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "24367445-d93a-4145-aca5-1f239b8b9307",
+              "name": "Content created; returns album_photo_id and connected_user_id.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "media",
+                    "file"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) HMAC-SHA1 (Base64) signature of the JSON payload.",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "description": {
+                        "content": "The media file (multipart/form-data)",
+                        "type": "text/plain"
+                      },
+                      "key": "file",
+                      "value": "<binary>",
+                      "type": "text"
+                    },
+                    {
+                      "description": {
+                        "content": "JSON metadata (album_id, title, email, username, etc.)",
+                        "type": "text/plain"
+                      },
+                      "key": "json",
+                      "value": "<string>",
+                      "type": "text"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 1322,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://distillery.pixlee.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c8c91503-0685-4930-9618-ce5932ead498",
+    "name": "Pixlee Content Albums Media API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.\n\nContact Support:\n Name: Pixlee TurnTo Developer Support (Emplifi)",
+      "type": "text/plain"
+    }
+  }
+}

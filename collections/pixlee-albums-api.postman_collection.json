@@ -1,0 +1,168 @@
+{
+  "item": [
+    {
+      "id": "e1a38bfa-96d8-4271-9ceb-0fe1b03ae2f8",
+      "name": "Albums",
+      "description": {
+        "content": "Create albums and add or update products",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "591aee92-393c-4db5-8cb6-e4620352b7a0",
+          "name": "Create Album / Add or Update Product",
+          "request": {
+            "name": "Create Album / Add or Update Product",
+            "description": {
+              "content": "Creates a standard or category (tag) album, or adds/updates a product (album_type \"product\"). Requires the ACCOUNT PRIVATE API KEY and an HMAC-SHA1 signature header.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) Pixlee's ACCOUNT PRIVATE API KEY"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) An HMAC-SHA1 signature (Base64) of the JSON payload signed with the ACCOUNT SECRET KEY. See https://developers.pixlee.com/reference/about-the-content-api#authentication",
+                "key": "signature",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"album_type\": \"<string>\",\n  \"public_contribution\": true,\n  \"moderation\": true,\n  \"liveUpdate\": true,\n  \"product\": {\n    \"sku\": \"<string>\",\n    \"product_photo\": \"<string>\",\n    \"name\": \"<string>\",\n    \"buy_now_link_url\": \"<string>\",\n    \"buy_now_text\": \"<string>\",\n    \"price\": \"<number>\",\n    \"stock\": \"<integer>\",\n    \"currency\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fc4478f9-9c5c-414e-8c6d-df9b1adb3498",
+              "name": "Album or product created/updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) An HMAC-SHA1 signature (Base64) of the JSON payload signed with the ACCOUNT SECRET KEY. See https://developers.pixlee.com/reference/about-the-content-api#authentication",
+                    "key": "signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Pixlee Tshirt\",\n  \"album_type\": \"product\",\n  \"product\": {\n    \"sku\": \"PTS5\",\n    \"product_photo\": \"https://cdn.dribbble.com/users/67504/screenshots/1313354/shirt.jpg\",\n    \"name\": \"Pixlee Tshirt\",\n    \"buy_now_link_url\": \"https://pixlee.com/tshirt\",\n    \"buy_now_text\": \"Shop Now\",\n    \"price\": 234,\n    \"stock\": 12,\n    \"currency\": \"USD\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 548,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://distillery.pixlee.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9e88f4ca-ecba-4d59-a77a-a5f73917c69a",
+    "name": "Pixlee Content Albums API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.\n\nContact Support:\n Name: Pixlee TurnTo Developer Support (Emplifi)",
+      "type": "text/plain"
+    }
+  }
+}

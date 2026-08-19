@@ -1,0 +1,193 @@
+{
+  "item": [
+    {
+      "id": "cb7a7c2a-4c33-498c-84ee-c45bf79e36c3",
+      "name": "Content",
+      "description": {
+        "content": "Consume approved media content from albums",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "04042428-bb66-4788-9975-784b1c013548",
+          "name": "Get approved content from album",
+          "request": {
+            "name": "Get approved content from album",
+            "description": {
+              "content": "Returns approved media content inside an album. Optionally, pass in formatted JSON to filter or sort the content. This is the most commonly used endpoint for consuming UGC.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "albums",
+                ":album_id",
+                "photos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api_key",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "30"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<json>",
+                  "description": "JSON sort object. Applicable sorts: recency, approved_time, random, pixlee_shares, pixlee_likes, popularity, dynamic (with desc | asc)."
+                },
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<json>",
+                  "description": "JSON filters object (intersecting clauses). See the Consuming Content guide for the full filter vocabulary (content_source, content_type, has_product, has_permission, in_categories, etc.)."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "album_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1edd3471-e3e8-4c5d-bf55-fc6f55042027",
+              "name": "Approved media content, paginated, under the `data` key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "albums",
+                    ":album_id",
+                    "photos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "30"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<json>"
+                    },
+                    {
+                      "key": "filters",
+                      "value": "<json>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "album_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": 9904,\n  \"message\": \"string\",\n  \"data\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://distillery.pixlee.co/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9730d5aa-7e5c-478b-8815-8f17a2b3bf16",
+    "name": "Pixlee Albums Content API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.\n\nContact Support:\n Name: Pixlee TurnTo Developer Support (Emplifi)",
+      "type": "text/plain"
+    }
+  }
+}

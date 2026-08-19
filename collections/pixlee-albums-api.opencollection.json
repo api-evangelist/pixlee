@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixlee Content Albums API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Albums",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Album / Add or Update Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://distillery.pixlee.co/api/v2/albums",
+            "headers": [
+              {
+                "name": "signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Pixlee's ACCOUNT PRIVATE API KEY"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a standard or category (tag) album, or adds/updates a product (album_type \"product\"). Requires the ACCOUNT PRIVATE API KEY and an HMAC-SHA1 signature header."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

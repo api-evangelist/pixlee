@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Pixlee Content Albums Media API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Media",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create new Content from URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://distillery.pixlee.co/api/v2/media",
+            "headers": [
+              {
+                "name": "signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Pixlee's ACCOUNT PRIVATE API KEY"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns album_photo_id. Most image types, gifs, and mp4s are allowed in photo_uri. Either connected_user_id or email must be non-null."
+        },
+        {
+          "info": {
+            "name": "Create new Content from File",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://distillery.pixlee.co/api/v2/media/file",
+            "headers": [
+              {
+                "name": "signature",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "api_key",
+                "value": "",
+                "type": "query",
+                "description": "Pixlee's ACCOUNT PRIVATE API KEY"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                },
+                {
+                  "name": "json",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Uploads content as multipart/form-data with a binary `file` part and a `json` metadata part. Returns album_photo_id and connected_user_id."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
