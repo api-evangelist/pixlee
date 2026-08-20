@@ -41,6 +41,16 @@ tags:
 - Visual Marketing
 - Content
 - Media
+- E-Commerce
+- Widgets
+- Emplifi
+tags_raw:
+- Company
+- User Generated Content
+- Social Commerce
+- Visual Marketing
+- Content
+- Media
 - eCommerce
 - Widgets
 - Emplifi
@@ -53,6 +63,11 @@ apis:
   humanURL: https://developers.pixlee.com/reference/about-the-content-api
   baseURL: https://distillery.pixlee.co/api/v2
   tags:
+  - Content
+  - UGC
+  - Media
+  - Product
+  tags_raw:
   - Content
   - UGC
   - Media
