@@ -11,6 +11,18 @@ description: >-
   with HMAC-SHA1 request signing required for all writes. Pixlee also ships embeddable
   JavaScript display widgets, email display blocks, and native iOS/Android UI SDKs.
   Originally an a16z-backed startup, Pixlee was acquired by Emplifi.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
