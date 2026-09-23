@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Pixlee Albums Content API
   version: '2.0'
-  description: Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products. Pixlee is now part of Emplifi (Pixlee TurnTo). Authentication uses an ACCOUNT API KEY / ACCOUNT PRIVATE API KEY passed as the `api_key` query parameter; all POST (write) requests must additionally be signed with an HMAC-SHA1 `Signature` header computed from the JSON payload using the ACCOUNT SECRET KEY.
+  description: Pixlee's Content API provides brands programmatic access to their Pixlee user-generated content (UGC), lets them consume approved media from albums with rich filtering and sorting, upload new content from a URL or a file, and add or update products.
   contact:
     name: Pixlee TurnTo Developer Support (Emplifi)
     url: https://developers.pixlee.com/
