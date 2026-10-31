@@ -64,6 +64,123 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Pixlee is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Pixlee (Pixlee TurnTo, now part of Emplifi) is a visual and social user-generated content (UGC) marketing platform that helps brands collect, curate, moderate, and display customer photos and videos across their website, mobile apps, and email. The Pixlee Content API (v2) gives brands programmatic access to their approved media in albums with rich filtering and sorting, lets them ingest new content from a URL or an uploaded file, and add or update commerce products that media can be tagged with. Authentication is via an account API key passed as a query parameter, with HMAC-SHA1 request signing required for all writes. Pixlee also ships embeddable JavaScript display widgets, email display blocks, and native iOS/Android UI SDKs. Originally an a16z-backed startup, Pixlee was acquired by Emplifi.
 
-Backed by: a16z
+**Areas:** Company · User Generated Content · Social Commerce · Visual Marketing · Content · Media · E-Commerce · Widgets · Emplifi
+
+## Pixlee on APIs.io
+
+Everything profiled for Pixlee is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pixlee/](https://apis.io/providers/pixlee/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Pixlee Content API](https://apis.io/apis/pixlee/pixlee-content-api/) — Consume approved UGC media from albums (with filters/sorts and pagination), ingest new content from a URL or file, and add or update products. API key in…
+- [Pixlee Albums API](https://apis.io/apis/pixlee/pixlee-albums-api/) — Create albums and add or update products
+- [Pixlee Media API](https://apis.io/apis/pixlee/pixlee-media-api/) — Upload new content from a URL or a file
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [pixlee-content-api](https://apis.io/servers/pixlee/pixlee-content-api/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Pixlee Agentic Access](https://apis.io/agentic-access/pixlee/pixlee-agentic-access/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [Pixlee Content Albums API](https://apis.io/collections/pixlee/open-pixlee-albums-api/)
+- [Pixlee Albums Content API](https://apis.io/collections/pixlee/open-pixlee-content-api/)
+- [Pixlee Content Albums Media API](https://apis.io/collections/pixlee/open-pixlee-media-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Pixlee Content Api Overlay](https://apis.io/overlays/pixlee/pixlee-content-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Pixlee Authentication](https://apis.io/security/pixlee/pixlee-authentication/)
+- [Pixlee Domain Security](https://apis.io/security/pixlee/pixlee-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://emplifi.io/)
+- [Documentation](https://developers.pixlee.com/docs/getting-started)
+- [Getting started](https://developers.pixlee.com/docs/getting-started)
+- [API reference](https://developers.pixlee.com/reference/about-the-content-api)
+- [Pricing](https://emplifi.io/pricing/)
+- [Sign up](https://emplifi.io/demo/)
+- [Support](https://support.emplifi.io/hc/en-us)
+- [Changelog](https://developers.pixlee.com/changelog)
+- [Blog](https://emplifi.io/resource-type/blogs/)
+- [Terms of service](https://emplifi.io/legal/website-terms-of-use/)
+- [Privacy policy](https://emplifi.io/legal/privacy-policy/)
+- [GitHub](https://github.com/pixlee)
+
+## API Evangelist rating
+
+**Kin Score 34.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 78.6 |
+| Contract quality | 13.3 |
+| Contract governance | 4.5 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 44.7 |
+
+**Agent readiness 21.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pixlee/](https://apis.io/providers/pixlee/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Pixlee: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pixlee/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
